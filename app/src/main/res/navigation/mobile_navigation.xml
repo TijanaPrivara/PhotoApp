@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_all_photo">
+
+    <fragment
+        android:id="@+id/navigation_all_photo"
+        android:name="com.privara.photoapp.view.fragments.AllPhotoFragment"
+        android:label="@string/title_all_photo"
+        tools:layout="@layout/fragment_all_photo" >
+        <action
+            android:id="@+id/action_all_photo_to_photoDetails"
+            app:destination="@id/navigation_photo_Details" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_photo_Details"
+        android:name="com.privara.photoapp.view.fragments.PhotoDetailsFragment"
+        android:label="@string/title_photo_details"
+        tools:layout="@layout/fragment_photo_details" >
+        <argument
+            android:name="photoDetails"
+            app:argType="com.privara.photoapp.model.entities.Photo" />
+    </fragment>
+</navigation>

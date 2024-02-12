@@ -1,0 +1,85 @@
+<resources>
+
+    <string name="app_name">MyFavPhotoApp</string>
+
+    <string name="title_activity_main">Main Activity</string>
+    <string name="title_activity_add_update_photo">Add/Update Photo</string>
+
+    <string name="title_all_photo">All Photo</string>
+    <string name="title_favorite_photo">Favorite</string>
+    <string name="title_random_photo">Random Photo</string>
+
+    <string name="splash_screen_title">My Fav Photo</string>
+
+    <string name="action_add_photo">Add Photo</string>
+    <string name="photo_category">Category: %1$s</string>
+    <string name="photo_date">Date: %1$s</string>
+    <string name="image_contentDescription">image</string>
+    <string name="lbl_title">Title</string>
+    <string name="lbl_date">Date</string>
+    <string name="lbl_description">Description</string>
+    <string name="lbl_type">Type</string>
+    <string name="lbl_category">Category</string>
+    <string name="lbl_cooking_time_in_minutes">Cooking Time In Minutes</string>
+    <string name="lbl_direction_to_cook">Direction To Cook</string>
+    <string name="lbl_add_photo">ADD PHOTO</string>
+
+    <string name="title_select_image">Select Image Action</string>
+    <string name="lbl_camera">Camera</string>
+    <string name="lbl_gallery">Gallery</string>
+
+    <string name="title_select_photo_type">SELECT PHOTO TYPE</string>
+    <string name="title_select_photo_category">SELECT PHOTO CATEGORY</string>
+    <string name="title_select_photo_cooking_time">SELECT COOKING TIME IN MINUTES</string>
+
+
+    <string name="err_msg_select_photo_image">Select photo image.</string>
+    <string name="err_msg_enter_photo_title">Enter photo title.</string>
+    <string name="err_msg_select_photo_type">Select photo type.</string>
+    <string name="err_msg_select_photo_category">Select photo category.</string>
+    <string name="err_msg_select_photo_cooking_time">Select photo cooking time.</string>
+    <string name="err_msg_enter_photo_cooking_instructions">Enter photo cooking instructions.</string>
+
+    <string name="label_no_photo_added_yet">No favorite photo added yet!!!</string>
+
+
+    <string name="title_photo_details">Photo Details</string>
+
+    <string name="lbl_estimate_cooking_time">The approx time required to cook the photo is %1$s minutes.</string>
+
+    <string name="msg_added_to_favorites">You have added the photo to your favorites.</string>
+    <string name="msg_removed_from_favorite">You have removed the photo from your favorites.</string>
+
+    <string name="label_no_favorite_photo_added_yet">No favorite photo added yet!!!</string>
+
+    <string name="title_delete_photo">Delete Photo</string>
+    <string name="msg_delete_photo_dialog">Are you sure you want to delete %1$s.</string>
+    <string name="action_filter_photo">Filter Photo</string>
+    <string name="title_select_item_to_filter">SELECT ITEM TO FILTER</string>
+
+    
+    <string name="msg_already_added_to_favorites">you have already added the photo to your favorites</string>
+
+    <string name="title_all_photos">All Photos</string>
+    <string name="title_favorite_photos">Favorite Photos</string>
+    <string name="title_add_photo">Add Photo</string>
+    <string name="title_edit_photo">Edit Photo</string>
+    <string name="lbl_update_photo">Update Photo</string>
+    <string name="delete_photo">Delete Photo</string>
+
+    <string name="err_msg_enter_photo_description">Please enter a description for the photo.</string>
+    <string name="err_msg_enter_photo_date">Please enter the date for the photo.</string>
+
+    <string name="permission_rationale">This app requires your permission to access the camera and storage for uploading photos.</string>
+    <string name="action_edit_photo">Edit Photo</string>
+    <string name="action_delete_photo">Delete Photo</string>
+    <string name="action_share_photo">Share Photo</string>
+
+    <string name="notification_title">Check out new photos</string>
+    <string name="notification_subtitle">Tap for more details.</string>
+
+    <string name="please_wait">Please wait...</string>
+    <string name="lbl_yes">Yes</string>
+    <string name="lbl_no">No</string>
+
+</resources>
