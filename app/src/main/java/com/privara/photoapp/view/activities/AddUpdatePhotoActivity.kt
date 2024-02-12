@@ -84,9 +84,7 @@ class AddUpdatePhotoActivity : AppCompatActivity(), View.OnClickListener {
         mBinding.ivAddPhotoImage.setOnClickListener(this)
         mBinding.etCategory.setOnClickListener(this)
         mBinding.btnAddPhoto.setOnClickListener(this)
-        mBinding.etDate.setOnClickListener {
-            showDatePickerDialog()
-        }
+
     }
 
     override fun onClick(v: View) {
@@ -138,7 +136,7 @@ class AddUpdatePhotoActivity : AppCompatActivity(), View.OnClickListener {
             title.isEmpty() -> showToast(getString(R.string.err_msg_enter_photo_title)).let { false }
             date.isEmpty() -> showToast(getString(R.string.err_msg_enter_photo_date)).let { false }
             category.isEmpty() -> showToast(getString(R.string.err_msg_select_photo_category)).let { false }
-            description.isEmpty() -> showToast(getString(R.string.err_msg_enter_photo_description)).let { false }
+            description.isEmpty() -> showToast(getString(R.string.err_msg_enter_photo_description)).let { false } // Assuming you want to correct the string resource here
             else -> true
         }
     }

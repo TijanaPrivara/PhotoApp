@@ -90,15 +90,10 @@ class AllPhotoFragment : Fragment() {
         }
     }
 
-
     fun photoDetails(photo: Photo) {
         val action = AllPhotoFragmentDirections.actionAllPhotoToPhotoDetails(photo)
         findNavController().navigate(action)
         (activity as? MainActivity)?.hideBottomNavigationView()
-    }
-
-    fun deletePhoto(photo: Photo) {
-        photoViewModel.delete(photo)
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

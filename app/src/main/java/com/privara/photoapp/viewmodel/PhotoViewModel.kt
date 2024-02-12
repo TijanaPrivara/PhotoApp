@@ -7,7 +7,6 @@ import kotlinx.coroutines.launch
 
 class PhotoViewModel(private val repository: PhotoAppRepository) : ViewModel() {
     val allPhotos: LiveData<List<Photo>> = repository.allPhotos
-    private val _editablePhoto = MutableLiveData<Photo?>()
 
     fun insert(photo: Photo) = viewModelScope.launch {
         repository.insertPhotoData(photo)
@@ -20,8 +19,6 @@ class PhotoViewModel(private val repository: PhotoAppRepository) : ViewModel() {
     fun delete(photo: Photo) = viewModelScope.launch {
         repository.deletePhotoData(photo)
     }
-
-
 }
 
     class PhotoViewModelFactory(private val repository: PhotoAppRepository) :

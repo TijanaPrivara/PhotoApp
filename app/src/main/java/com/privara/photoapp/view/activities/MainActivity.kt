@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity() {
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_all_photo
-                // Add other IDs of your top-level destinations if you have any
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -52,8 +51,4 @@ class MainActivity : AppCompatActivity() {
             }.start()
     }
 
-    fun showBottomNavigationView() {
-        binding.navView.visibility = View.VISIBLE
-        binding.navView.animate().translationY(0f).duration = 300
-    }
 }
