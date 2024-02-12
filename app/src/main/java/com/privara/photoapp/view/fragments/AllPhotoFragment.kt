@@ -8,17 +8,19 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
+import com.bumptech.glide.Glide
 import com.privara.photoapp.R
 import com.privara.photoapp.application.PhotoAppApplication
 import com.privara.photoapp.databinding.FragmentAllPhotoBinding
 import com.privara.photoapp.model.entities.Photo
 import com.privara.photoapp.view.activities.AddUpdatePhotoActivity
 import com.privara.photoapp.view.activities.MainActivity
-import com.privara.photoapp.view.adapters.PhotoAdapter
 import com.privara.photoapp.viewmodel.PhotoViewModel
 import com.privara.photoapp.viewmodel.PhotoViewModelFactory
 
@@ -26,8 +28,6 @@ class AllPhotoFragment : Fragment() {
 
     private var _binding: FragmentAllPhotoBinding? = null
     private val binding get() = _binding!!
-
-    private lateinit var photoAdapter: PhotoAdapter
 
     private val photoViewModel: PhotoViewModel by viewModels {
         PhotoViewModelFactory((requireActivity().application as PhotoAppApplication).repository)
@@ -41,23 +41,55 @@ class AllPhotoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setHasOptionsMenu(true)
-        setupRecyclerView()
         observePhotos()
     }
 
-    private fun setupRecyclerView() {
-        binding.rvPhotoList.layoutManager = GridLayoutManager(requireContext(), 2)
-        photoAdapter = PhotoAdapter(fragment = this)
-        binding.rvPhotoList.adapter = photoAdapter
-    }
-
     private fun observePhotos() {
-        // Observe the LiveData from ViewModel
         photoViewModel.allPhotos.observe(viewLifecycleOwner) { photos ->
-            // Update the list in the adapter
-            photoAdapter.submitList(photos)
+            displayPhotos(photos)
         }
     }
+
+    private fun displayPhotos(photos: List<Photo>) {
+        val container: LinearLayout = binding.photosContainer
+        container.removeAllViews()
+
+        photos.forEach { photo ->
+            val photoItemLayout = LinearLayout(context).apply {
+                orientation = LinearLayout.VERTICAL
+                layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                ).also {
+                    it.setMargins(8, 8, 8, 8)
+                }
+            }
+            val imageView = ImageView(context).apply {
+                layoutParams = LinearLayout.LayoutParams(
+                    resources.getDimensionPixelSize(R.dimen._100sdp),
+                    resources.getDimensionPixelSize(R.dimen._100sdp)
+                )
+                scaleType = ImageView.ScaleType.CENTER_CROP
+            }
+            Glide.with(this@AllPhotoFragment).load(photo.image).into(imageView)
+
+            val titleView = TextView(context).apply {
+                layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                )
+                text = photo.title
+                textSize = 16f
+            }
+            photoItemLayout.addView(imageView)
+            photoItemLayout.addView(titleView)
+            photoItemLayout.setOnClickListener {
+                photoDetails(photo)
+            }
+            container.addView(photoItemLayout)
+        }
+    }
+
 
     fun photoDetails(photo: Photo) {
         val action = AllPhotoFragmentDirections.actionAllPhotoToPhotoDetails(photo)
@@ -81,7 +113,6 @@ class AllPhotoFragment : Fragment() {
                 return true
             }
             R.id.action_filter_photo -> {
-                // Implement your filtering logic here
                 return true
             }
         }
