@@ -112,9 +112,7 @@ class AllPhotoFragment : Fragment() {
                 startActivity(Intent(context, AddUpdatePhotoActivity::class.java))
                 return true
             }
-            R.id.action_filter_photo -> {
-                return true
-            }
+
         }
         return super.onOptionsItemSelected(item)
     }

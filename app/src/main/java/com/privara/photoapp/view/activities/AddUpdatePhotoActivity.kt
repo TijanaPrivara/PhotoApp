@@ -138,7 +138,7 @@ class AddUpdatePhotoActivity : AppCompatActivity(), View.OnClickListener {
             title.isEmpty() -> showToast(getString(R.string.err_msg_enter_photo_title)).let { false }
             date.isEmpty() -> showToast(getString(R.string.err_msg_enter_photo_date)).let { false }
             category.isEmpty() -> showToast(getString(R.string.err_msg_select_photo_category)).let { false }
-            description.isEmpty() -> showToast(getString(R.string.err_msg_enter_photo_description)).let { false } // Assuming you want to correct the string resource here
+            description.isEmpty() -> showToast(getString(R.string.err_msg_enter_photo_description)).let { false }
             else -> true
         }
     }

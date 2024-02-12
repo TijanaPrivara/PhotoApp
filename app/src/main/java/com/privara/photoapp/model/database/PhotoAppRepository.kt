@@ -6,7 +6,6 @@ import com.privara.photoapp.model.entities.Photo
 
 class PhotoAppRepository(private val photoAppDao: PhotoAppDao) {
 
-    // This exposes allPhotos as a LiveData property directly, without calling it as a function.
     val allPhotos: LiveData<List<Photo>> = photoAppDao.getAllPhotos()
 
     @WorkerThread

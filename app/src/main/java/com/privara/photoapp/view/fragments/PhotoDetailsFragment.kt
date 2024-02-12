@@ -23,6 +23,7 @@ class PhotoDetailsFragment : Fragment() {
 
     private var _binding: FragmentPhotoDetailsBinding? = null
     private val binding get() = _binding!!
+
     private val photoViewModel: PhotoViewModel by viewModels {
         PhotoViewModelFactory((requireActivity().application as PhotoAppApplication).repository)
     }
@@ -33,6 +34,7 @@ class PhotoDetailsFragment : Fragment() {
         _binding = FragmentPhotoDetailsBinding.inflate(inflater, container, false)
         return binding.root
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val args: PhotoDetailsFragmentArgs by navArgs()

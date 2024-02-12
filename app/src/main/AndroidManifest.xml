@@ -41,7 +41,5 @@
             android:theme="@style/Theme.PhotoApp.NoActionBar"
             android:exported="false"/>
 
-        <!-- Define other activities and services here -->
-
     </application>
 </manifest>
