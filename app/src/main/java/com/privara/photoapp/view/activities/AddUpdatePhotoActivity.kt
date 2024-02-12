@@ -2,6 +2,7 @@ package com.privara.photoapp.view.activities
 
 import android.Manifest
 import android.app.Activity
+import android.app.DatePickerDialog
 import android.app.Dialog
 import android.content.ActivityNotFoundException
 import android.content.Context
@@ -43,6 +44,8 @@ import java.io.File
 import java.io.FileOutputStream
 import java.io.IOException
 import java.io.OutputStream
+import java.util.Calendar
+import java.util.Locale
 import java.util.UUID
 
 class AddUpdatePhotoActivity : AppCompatActivity(), View.OnClickListener {
@@ -81,7 +84,9 @@ class AddUpdatePhotoActivity : AppCompatActivity(), View.OnClickListener {
         mBinding.ivAddPhotoImage.setOnClickListener(this)
         mBinding.etCategory.setOnClickListener(this)
         mBinding.btnAddPhoto.setOnClickListener(this)
-
+        mBinding.etDate.setOnClickListener {
+            showDatePickerDialog()
+        }
     }
 
     override fun onClick(v: View) {
@@ -319,4 +324,19 @@ class AddUpdatePhotoActivity : AppCompatActivity(), View.OnClickListener {
         private const val GALLERY = 2
         private const val IMAGE_DIRECTORY = "PhotoImages"
     }
+
+    private fun showDatePickerDialog() {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        val dpd = DatePickerDialog(this, { _, year, monthOfYear, dayOfMonth ->
+            val selectedDate = String.format(Locale.getDefault(), "%d-%02d-%02d", year, monthOfYear + 1, dayOfMonth)
+            mBinding.etDate.setText(selectedDate)
+        }, year, month, day)
+
+        dpd.show()
+    }
+
 }
